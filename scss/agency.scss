@@ -6,19 +6,14 @@
 body {
     overflow-x: hidden;
     @include body-font;
+    color: $primary;
+   
 }
 
-.text-muted {
-    color: $gray-light;
+.text-muted { //rewrite bootstrap
+    color: $primary-light;
 }
 
-.text-primary {
-    color: $theme-primary;
-}
-
-.bgcolor-grey {
-    color: $theme-grey;
-}
 
 p {
     font-size: 14px;
@@ -38,26 +33,21 @@ a.active {
 }
 
 a {
-    color: $theme-primary;
+    color: darken($primary, 10%);
+    font-weight: 700;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 a:hover,
 a:focus,
 a:active,
 a.active {
-    color: darken($theme-primary, 10%);
+    color: darken($primary, 50%);
+    
 }
-a.link-theme-color {
-    color: $theme-links;
-    text-decoration: underline;
-        a:hover,
-        a:focus,
-        a:active,
-        a.active {
-            color: darken($theme-primary, 10%);
-            
-        }
-}
+
 
 h1, h2, h3, h4, h5, h6 {
     @include heading-font;
@@ -76,16 +66,107 @@ h1, h2, h3, h4, h5, h6 {
     background-color: $gray-darker;
 }
 
+.text-danger {
+    color: white;
+}
+
+
+//icons
+.website-type {
+    margin-bottom: 80px;
+}
+.icon {
+   display: block;
+  text-indent: -9999px;
+  width: 50px;
+  height: 50px;
+  color: #ccc;
+  background-size: 50px 50px;
+  opacity: 0.3; 
+  margin-bottom: 40px;
+}
+
+.icon-portfolio {
+  background-image: url(/img/icons/camera.svg);
+}
+.icon-blog {
+  background-image: url(/img/icons/blogger.svg);
+}
+.icon-personal {
+  background-image: url(/img/icons/tea-cup.svg);
+}
+.icon-ecommerce {
+  background-image: url(/img/icons/shopping-cart.svg);
+}
+.icon-nonprofit {
+  background-image: url(/img/icons/solidarity.svg);
+}
+.icon-onlineclasses {
+  background-image: url(/img/icons/online-education.svg);
+}
+.icon-wordpress {
+  background-image: url(/img/icons/wordpress-logo-button.svg);
+}
+
+.icon-squarespace {
+  background-image: url(/img/icons/squarespace-logo.svg);
+}
+.icon-html {
+  background-image: url(/img/icons/html.svg);
+}
+.service-heading {
+    margin: 15px 0;
+    text-transform: none;
+    font-size: 17px;
+    font-weight: normal;
+}
+
+section.features .row { margin-bottom: 40px;}
+#support {
+   
+    h3, p { 
+        color: #fff;
+        text-transform:none;
+        font-weight: normal;
+        margin-bottom:20px; 
+    }
+}
+.col-right {
+    
+    background: url(/img/support.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+.col-left {
+   background: url(/img/hosting.jpg); 
+   background-position: center center;
+   background-size: cover;
+}
+ .col-right, .col-left {
+    padding-top: 50px;
+    height: 350px;
+ } 
+.features .service-heading {
+    background-image: url(/img/icons/check.png);
+    background-position: left center;
+    background-repeat:  no-repeat;
+    padding-left: 20px;
+}
+
+#support {
+    padding-top:0px;
+    padding-bottom:0px;
+}
 // Restyled Primary Buttons
 
 .btn-primary {
-    @include button-variant(white, $theme-grey, $theme-grey);
+    @include button-variant(white, $primary, $primary);
     @include heading-font;
     font-weight: 700;
 }
 
 .btn-xl {
-    @include button-variant(white, $theme-grey, $theme-grey);
+    @include button-variant(white, $primary, $primary);
     @include heading-font;
     font-weight: 700;
     border-radius: 3px;
@@ -93,27 +174,39 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px 40px;
 }
 
-#contactForm .btn-xl {
-    @include button-variant(white, darken($theme-grey, 10%), darken($theme-grey, 10%));
+.webtools {
+    background-image: url('/img/tools.jpg');
+    background-color: #cfcad0;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    padding: 150px 0;
+    color: #fff;
+    .icon {
+         opacity: 1; 
+         margin: 0 auto 30px auto
+    }
+    h4 {
+        margin-bottom: 40px;
+    } 
 }
 
 
 
 // Custom Navigation Bar
 
-.navbar-custom {
-    background-color: $gray-darker;
-    border-color: transparent;
+.navbar-custom { //navigation mobile devices
+    background-color: lighten($primary, 50%); 
     letter-spacing: 3px;
-
     .navbar-brand {
-        color: $theme-primary;
+        
         @include heading-font;
         &:hover,
         &:focus,
         &:active,
         &.active {
-            color: $theme-primary;
+            
         }
     }
     .navbar-collapse {
@@ -122,7 +215,7 @@ h1, h2, h3, h4, h5, h6 {
     .navbar-toggle {
         border:none;
         @include heading-font;
-        color: white;
+        color: #000;
         font-size: 12px;
         &:hover,
         &:focus {
@@ -133,27 +226,27 @@ h1, h2, h3, h4, h5, h6 {
         li {
             a {
                 @include heading-font;
-                font-weight: 400;
+                color: #000;
                 font-size: 12px;
                 letter-spacing: 3px;
-                color: $theme-primary;
+               
                 &:hover,
                 &:focus {
-                    color: $theme-primary;
-                    outline: none;
+                   
+                    //outline: none;
                 }
             }
         }
     }
     .navbar-nav>.active>a {
         //border-radius: 0;
-        //color: $theme-grey;
+        ////color: $theme-grey;
         text-decoration: underline;
         background-color: none;
     }
     .navbar-nav>.active>a:hover,
     .navbar-nav>.active>a:focus {
-        //color: $theme-grey;
+        ////color: $theme-grey;
         text-decoration: underline;
         //background-color: darken($theme-primary, 10%);
     }
@@ -162,18 +255,18 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-default .navbar-nav>.active>a:focus, 
 .navbar-default .navbar-nav>.active>a:hover {
     background: none;
-    color: $theme-primary;
+    
 }
 
 @media(min-width:768px) {
-    .navbar-custom {
-        //background-color: transparent;
-        background-color: rgba(75, 41, 34, 0.40);
+    .navbar-custom { //navigation desktop 
+        background-color: transparent;
+        border-bottom: 1px solid #babbb5;
         padding: 15px 0;
         -webkit-transition: padding 0.3s;
         -moz-transition: padding 0.3s;
         transition: padding 0.3s;
-        border: none;
+        
         .navbar-brand {
             font-size: 1.2em;
             -webkit-transition: all 0.3s;
@@ -189,8 +282,8 @@ h1, h2, h3, h4, h5, h6 {
 // Navbar Change on Scroll
 
 @media(min-width:768px) {
-    .navbar-custom.affix {
-        background-color: $gray-darker;
+    .navbar-custom.affix { //navigation desktop scroll
+        background-color: lighten($primary, 50%); 
         padding: 10px 0;
         .navbar-brand {
             font-size: 1em;
@@ -201,22 +294,25 @@ h1, h2, h3, h4, h5, h6 {
 
 .transp-bg {
     background-color: #ddd;
-opacity: 0.3;
+    opacity: 0.3;
 }
 
 header {
-    //background-image: url('../img/header-bg.jpg');
-    background-image: url('../img/splash.png');
+    background-image: url('../img/header.jpg');
+    //background-image: url('../img/splash.png');
+    //background-image: url('../img/bg2.jpg');
+    background-color: #cfcad0;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
    
-    
     @include background-cover;
     text-align: center;
-    color: white;
+
     .intro-text {
-        
+        width: 60%;
+        margin: 0 auto;
+
 
         padding-top: 100px;
         padding-bottom: 50px;
@@ -225,7 +321,7 @@ header {
            // @include serif-font;
             //font-style: italic;
             font-size: 22px;
-            line-height: 22px;
+            line-height: 25px;
             margin-bottom: 25px;
         }
         .intro-heading {
@@ -239,7 +335,7 @@ header {
             @include body-font;
            
             font-size: 18px;
-            line-height: 20px;
+            line-height: 25px;
             margin-bottom: 35px;
         }
     }
@@ -282,15 +378,18 @@ section {
     h2.section-heading {
         font-size: 40px;
         margin-top: 0;
-        margin-bottom: 15px;
+        
+        margin-bottom: 75px;
     }
     h3.section-subheading {
-        font-size: 16px;
+        font-size: 13px;
         //@include serif-font;
         text-transform: none;
         //font-style: italic;
         font-weight: 400;
-        margin-bottom: 75px;
+        margin-bottom: 15px;
+        color: red;
+        text-transform: uppercase;
     }
 }
 
@@ -300,12 +399,9 @@ section {
     }
 }
 
-// Services Section
 
-.service-heading {
-    margin: 15px 0;
-    text-transform: none;
-}
+
+
 
 // Portfolio Section
 
@@ -340,10 +436,10 @@ section {
                     text-align: center;
                     top: 50%;
                     margin-top: -12px;
-                    color: $theme-links;
+                
                     i {
                         margin-top: -12px;
-                        color: $plus-icon-color;
+                        color: white;
                         
                         
                     }
@@ -439,8 +535,8 @@ section {
             height: 80px;
             position: absolute;
             z-index: 100;
-            background-color: $theme-primary;
-            color: white;
+            background-color: $primary;
+            //color: white;
             border-radius: 100%;
             border: 7px solid #f1f1f1;
             text-align: center;
@@ -474,7 +570,7 @@ section {
     .timeline-heading {
         h4 {
             margin-top: 0;
-            color: inherit;
+            //color: inherit;
             &.subheading {
                 text-transform: none;
             }
@@ -598,7 +694,7 @@ aside.clients {
 // Contact Section
 
 section#contact {
-    background-color: $theme-grey;
+    background-color: #636363;
     background-image: url('../img/map-image.png');
     background-position: center;
     background-repeat: no-repeat;
@@ -622,31 +718,31 @@ section#contact {
         }
     }
     .form-control:focus {
-        border-color: $theme-primary;
+        border-color: $primary;
         box-shadow: none;
     }
     ::-webkit-input-placeholder {
        @include heading-font;
        font-weight: 700;
-       color: $gray-lighter;
+       //color: $gray-lighter;
     }
     :-moz-placeholder { /* Firefox 18- */
        @include heading-font;
        font-weight: 700;
-       color: $gray-lighter;
+       //color: $gray-lighter;
     }
     ::-moz-placeholder {  /* Firefox 19+ */
        @include heading-font;
        font-weight: 700;
-       color: $gray-lighter;
+       //color: $gray-lighter;
     }
     :-ms-input-placeholder {  
        @include heading-font;
        font-weight: 700;
-       color: $gray-lighter;
+       //color: $gray-lighter;
     }
     .text-danger {
-        color: $theme-danger;
+        //color: $theme-danger;
     }
 }
 
@@ -675,21 +771,21 @@ ul.social-buttons {
     li {
         a {
             display: block;
-            background-color: $theme-grey;
+            background-color: $primary;
             height: 40px;
             width: 40px;
             border-radius: 100%;
             font-size: 20px;
             line-height: 40px;
             color: white;
-            outline: none;
+            //outline: none;
             -webkit-transition: all 0.3s;
             -moz-transition: all 0.3s;
             transition: all 0.3s;
             &:hover,
             &:focus,
             &:active {
-                background-color: darken($theme-grey, 10%);
+                background-color: darken($primary, 10%);
             }
         }
     }
@@ -699,7 +795,7 @@ ul.social-buttons {
 .btn:active,
 .btn.active,
 .btn:active:focus {
-    outline: none;
+    //outline: none;
 }
 
 .portfolio-modal {
@@ -783,7 +879,7 @@ ul.social-buttons {
 
 ::-moz-selection {
     text-shadow: none;
-    background: $theme-primary;
+    background: $primary;
 }
 
 ::selection {
@@ -800,5 +896,5 @@ img::-moz-selection {
 }
 
 body {
-    webkit-tap-highlight-color: $theme-primary;
+    webkit-tap-highlight-color: $primary;
 }

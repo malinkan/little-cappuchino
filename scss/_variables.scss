@@ -2,13 +2,18 @@
 
 // Gray and Brand Colors for use across theme
 
-$theme-primary:    #f5f5f5;
+$primary: #4d4844;
+$primary-light:		lighten($primary, 10%) !default; 
+
+
 $theme-danger:     #ffbcbc;
-
 $theme-grey: 		#252525;
-$theme-links: 		#222222;
 
-$plus-icon-color:	#fff;
+
+
+
+
+
 
 
 $gray-base:			#000 !default;

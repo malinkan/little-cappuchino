@@ -12,8 +12,19 @@ $theme-grey: 		#252525;
 
 
 
+$navigation-bg: rgba(63, 63, 64, 0);
+$navigation-text-color: #fff;
+$navigation-border-color: #fff;
+
+$navigation-bg-mobile: rgba(63, 63, 64, 0.6);
+$natigation-text-color-mobile: #fff;
+
+$navigation-bg-scroll: rgba(63, 63, 64, 0.6);
+$natigation-text-color-scroll: #fff;
 
 
+$hero-img: url('/img/header5.jpg');
+$hero-text-color: #fff;
 
 
 $gray-base:			#000 !default;

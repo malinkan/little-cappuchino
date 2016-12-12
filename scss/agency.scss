@@ -70,7 +70,6 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
 }
 
-
 //icons
 .website-type {
     margin-bottom: 80px;
@@ -197,10 +196,11 @@ section.features .row { margin-bottom: 40px;}
 // Custom Navigation Bar
 
 .navbar-custom { //navigation mobile devices
-    background-color: lighten($primary, 50%); 
+    background-color: $navigation-bg-mobile; 
     letter-spacing: 3px;
     .navbar-brand {
-        
+        padding-top:9px;
+        img { height: 35px; }
         @include heading-font;
         &:hover,
         &:focus,
@@ -215,7 +215,7 @@ section.features .row { margin-bottom: 40px;}
     .navbar-toggle {
         border:none;
         @include heading-font;
-        color: #000;
+        color: $natigation-text-color-mobile;
         font-size: 12px;
         &:hover,
         &:focus {
@@ -226,29 +226,28 @@ section.features .row { margin-bottom: 40px;}
         li {
             a {
                 @include heading-font;
-                color: #000;
+                color: $natigation-text-color-mobile;
                 font-size: 12px;
                 letter-spacing: 3px;
                
                 &:hover,
                 &:focus {
-                   
-                    //outline: none;
+                   color: $natigation-text-color-mobile;
+                   text-decoration: underline;
                 }
             }
         }
     }
     .navbar-nav>.active>a {
-        //border-radius: 0;
-        ////color: $theme-grey;
         text-decoration: underline;
         background-color: none;
+        color: $natigation-text-color-mobile;
+
     }
     .navbar-nav>.active>a:hover,
     .navbar-nav>.active>a:focus {
-        ////color: $theme-grey;
         text-decoration: underline;
-        //background-color: darken($theme-primary, 10%);
+        color: $natigation-text-color-mobile;
     }
 }
 .navbar-default .navbar-nav>.active>a, 
@@ -260,18 +259,24 @@ section.features .row { margin-bottom: 40px;}
 
 @media(min-width:768px) {
     .navbar-custom { //navigation desktop 
-        background-color: transparent;
-        border-bottom: 1px solid #babbb5;
+        background-color: $navigation-bg;
+        a { 
+            color: $navigation-text-color; 
+        }
+        border-bottom: 1px solid $navigation-border-color;
         padding: 15px 0;
         -webkit-transition: padding 0.3s;
         -moz-transition: padding 0.3s;
         transition: padding 0.3s;
-        
         .navbar-brand {
+           padding-top: 5px;
+           img { height:50px; }
             font-size: 1.2em;
             -webkit-transition: all 0.3s;
             -moz-transition: all 0.3s;
             transition: all 0.3s;
+            padding-top:0px;
+            
         }
         .navbar-nav>.active>a {
             border-radius: 3px;
@@ -283,9 +288,14 @@ section.features .row { margin-bottom: 40px;}
 
 @media(min-width:768px) {
     .navbar-custom.affix { //navigation desktop scroll
-        background-color: lighten($primary, 50%); 
-        padding: 10px 0;
+        background-color: $navigation-bg-scroll; 
+        a {
+            color: $natigation-text-color-scroll;
+        }
+        padding: 0px;
         .navbar-brand {
+            padding-top:9px;
+            img { height: 35px;}
             font-size: 1em;
         }
     }
@@ -297,10 +307,8 @@ section.features .row { margin-bottom: 40px;}
     opacity: 0.3;
 }
 
-header {
-    background-image: url('../img/header.jpg');
-    //background-image: url('../img/splash.png');
-    //background-image: url('../img/bg2.jpg');
+header { //mobile
+    background-image: $hero-img;
     background-color: #cfcad0;
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -310,19 +318,16 @@ header {
     text-align: center;
 
     .intro-text {
-        width: 60%;
+        width: 40%;
         margin: 0 auto;
-
-
         padding-top: 100px;
         padding-bottom: 50px;
         .intro-lead-in {
             @include heading-font;
-           // @include serif-font;
-            //font-style: italic;
             font-size: 22px;
             line-height: 25px;
             margin-bottom: 25px;
+            color: $hero-text-color;
         }
         .intro-heading {
             @include heading-font;
@@ -330,26 +335,42 @@ header {
             font-size: 22px;
             line-height: 28px;
             margin-bottom: 5px;
+            color: $hero-text-color;
         }
         .intro-heading-description {
             @include body-font;
-           
             font-size: 18px;
             line-height: 25px;
             margin-bottom: 35px;
+            color: $hero-text-color;
         }
     }
 }
 
-@media(min-width:768px) {
+.btn-circle {
+    width: 55px;
+    height: 55px;
+    margin-top: 15px;
+    padding: 8px;
+    border: 2px solid #fff;
+    border-radius: 35px;
+    font-size: 30px;
+    color: #fff;
+    background: 0 0;
+    &:hover, &:focus {
+        color: #fff;
+        font-size: 32px;
+        padding: 6px 8px;
+    }
+}
+
+@media(min-width:768px) { //desktop
     header {
         .intro-text {
-            padding-top: 300px;
-            padding-bottom: 200px;
+            padding-top: 250px;
+            padding-bottom: 500px;
             .intro-lead-in {
                 @include heading-font;
-                //@include serif-font;
-                //font-style: italic;
                 font-size: 40px;
                 line-height: 40px;
                 margin-bottom: 25px;

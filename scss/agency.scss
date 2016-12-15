@@ -16,12 +16,12 @@ body {
 
 
 p {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.75;
 }
 
 p.large {
-    font-size: 16px;
+    font-size: 19px;
 }
 
 a,
@@ -174,12 +174,12 @@ section.features .row { margin-bottom: 40px;}
 }
 
 .webtools {
-    background-image: url('/img/tools.jpg');
-    background-color: #cfcad0;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-position: center center;
+    background: #cfcad0 url('/img/tools.jpg') no-repeat scroll top center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
     background-size: cover;
+    -o-background-size: cover;
+    background-attachment: fixed;
     padding: 150px 0;
     color: #fff;
     .icon {
@@ -312,8 +312,8 @@ header { //mobile
     background-color: #cfcad0;
     background-repeat: no-repeat;
     background-attachment: scroll;
-    background-position: center center;
-   
+    background-position: scroll center;
+    background-attachment: fixed;
     @include background-cover;
     text-align: center;
 
